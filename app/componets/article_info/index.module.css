@@ -1,0 +1,14 @@
+.root {
+    display: flex;
+    margin-bottom: 16px;
+    align-items: center;
+    .action_item {
+        margin-right: 16px;
+    }
+    .article_info_text {
+        margin-left: 32px;
+    }
+    .title {
+        font-size: 24px;
+    }
+}

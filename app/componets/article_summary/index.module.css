@@ -1,0 +1,11 @@
+.root {
+    .time {
+        margin-bottom: 32px;
+    }
+    .title {
+        font-size: 24px;
+    }
+    .sub_title {
+        margin-top:  16px;
+    }
+}
