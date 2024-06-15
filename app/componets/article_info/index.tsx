@@ -23,7 +23,7 @@ const ArticleInfo: React.FC<ArticleInfoItem> = props => {
 
     const router = useRouter();
     const handleTitleClick = (id: number) => {
-        router.push('article' + '?' + createQueryString("id", '' + id));
+        router.push('pages/article' + '?' + createQueryString("id", '' + id));
     }
     return (
         <div className={styles.root}>

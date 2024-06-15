@@ -10,5 +10,8 @@
     }
     .title {
         font-size: 24px;
+        cursor: pointer;
+        color: -webkit-link;
+        text-decoration: underline;
     }
 }

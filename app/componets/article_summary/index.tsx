@@ -6,6 +6,7 @@ const ArticleSummary: React.FC<Partial<ArticleInfoItem>> = props => {
         mtime,
         title,
         sub_title,
+        id,
     } = props
 
     return (
@@ -13,7 +14,7 @@ const ArticleSummary: React.FC<Partial<ArticleInfoItem>> = props => {
             <div className={styles.time}>
                 {formatDate(mtime || new Date())}
             </div>
-            <a className={styles.title} href="http://localhost:3000/about">{title}</a>
+            <a className={styles.title} href={`http://localhost:3000/article?id=${id}`}>{title}</a>
             <div className={styles.sub_title}>
                 { sub_title }
             </div>
