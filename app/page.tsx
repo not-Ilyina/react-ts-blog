@@ -1,11 +1,11 @@
 "use client";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import ArticleInfo from "./componets/article_info";
 import ArticleSummary from "./componets/article_summary";
 import { FormOutlined } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
+import request from "./utils/request";
 
 
 export default function Home() {
@@ -13,8 +13,9 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    axios.get('api/article/list').then((res) => {
-        setArticleInfoList(res.data.data || []);
+    request.get('api/article/list').then((res) => {
+      console.log(res.headers["set-cookie"], res.headers); // 跨域无法获取 cookie
+      setArticleInfoList(res.data.data || []);
     });
   }, []);
 

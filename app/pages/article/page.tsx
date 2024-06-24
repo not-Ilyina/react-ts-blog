@@ -1,16 +1,19 @@
 "use client";
 
-import axios from "axios";
 import {  useSearchParams } from "next/navigation";
 
 import { useEffect, useState } from "react";
 import { formatDate } from "../../utils/format_date";
+import { MarkdownRenderer } from "@/app/componets/markdown";
+import request from "@/app/utils/request";
+import styles from './index.module.css';
+
 export default function Article() {
     const [articleInfo, setArticleInfo] = useState<ArticleInfoItem>({} as ArticleInfoItem);
     const searchParams = useSearchParams()
     const id = searchParams.get('id');
     useEffect(() => {
-        axios.get('/api/article', {
+        request.get('/api/article', {
             params: {
                 id,
             },
@@ -20,7 +23,7 @@ export default function Article() {
     }, []);
 
     return (
-        <div>
+        <div className={styles.root}>
             <h1>{articleInfo.title}</h1>
             <div>
                 <span>{formatDate(articleInfo.mtime)}</span>
@@ -30,7 +33,7 @@ export default function Article() {
                 <span>收藏 { articleInfo.collection }</span>
             </div>
             <div>
-                文章内容。。。。。。
+                <MarkdownRenderer>{ articleInfo.content }</MarkdownRenderer>
             </div>
         </div>
     );
