@@ -20,5 +20,5 @@ jobs:
 
     - name: Download and execute script
       run: |
-        curl -O https://github.com/not-Ilyina/source_learn/tree/master/script.js
+        curl -O https://github.com/not-Ilyina/source_learn/blob/master/script/script.js
         node script.js
